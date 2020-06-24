@@ -1,17 +1,6 @@
 import subprocess
 import re
 
-teststr = '''8: ztmjfekvot: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 2800 qdisc fq_codel state UNKNOWN group default qlen 1000
-    link/ether ce:60:ec:bc:ad:91 brd ff:ff:ff:ff:ff:ff
-    inet 192.168.191.96/24 brd 192.168.191.255 scope global ztmjfekvot
-       valid_lft forever preferred_lft forever
-    inet6 fd80:56c2:e21c:87b7:cf99:93d7:6ba0:4f53/88 scope global
-       valid_lft forever preferred_lft forever
-    inet6 fc9c:d175:2dd7:6ba0:4f53::1/40 scope global
-       valid_lft forever preferred_lft forever
-    inet6 fe80::409:54ff:fe91:c75d/64 scope link
-       valid_lft forever preferred_lft forever'''
-
 def get_if_addr_ipv4(ifname):
     cmdres = subprocess.getstatusoutput('ip address show dev ' + ifname)
     if cmdres[0] == 1:
